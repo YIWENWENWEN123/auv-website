@@ -1,0 +1,6 @@
+server.log
+server.err
+server.js
+submissions/
+.DS_Store
+Thumbs.db
