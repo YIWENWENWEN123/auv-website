@@ -1,0 +1,20 @@
+#autonomy { padding:clamp(48px,6vw,90px) 0; background:radial-gradient(ellipse at 56% 16%,#0a3748 0%,#051c2a 40%,#041421 74%); color:#eef7fa; }
+#autonomy .film-heading,#autonomy .film-player,#autonomy .sonar-detail { width:min(1320px,92%); margin:0 auto; }
+#autonomy .film-series { font:10px var(--mono); letter-spacing:.16em; color:var(--cyan); }
+#autonomy h2 { font-size:clamp(32px,4vw,62px); line-height:1.16; margin:16px 0; } 
+#autonomy h2 em { color:var(--cyan); font-style:normal; }
+#autonomy .film-lead { color:#bad0db; font-size:clamp(15px,1.15vw,18px); line-height:1.7; margin:0 0 28px; }
+#autonomy .film-screen { width:100%;aspect-ratio:16/9;position:relative;background:#051623;overflow:hidden;box-shadow:0 14px 44px #00121d66; }
+#autonomy video,#autonomy .film-cover { position:absolute; inset:0;width:100%;height:100%;object-fit:contain; }
+#autonomy [hidden]{display:none}
+#autonomy .sonar-detail{padding-top:28px}
+#autonomy .sonar-detail header{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+#autonomy .sonar-detail h3{margin:0;font-size:clamp(19px,2vw,26px)}
+#autonomy .sonar-sequence{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,2vw,26px);margin-top:18px}
+#autonomy .sonar-sequence figure{margin:0;min-width:0}
+#autonomy .sonar-image{position:relative;max-width:340px;background:#03121b}
+#autonomy .sonar-image img{display:block;width:100%;height:auto}
+#autonomy .sonar-mark{position:absolute;left:49%;top:65%;width:10%;height:15%;border:2px solid #57df86}
+#autonomy .sonar-sequence figcaption{padding:9px 0;color:#d5e6eb;font-size:14px}
+@media(max-width:600px){#autonomy .film-heading,#autonomy .film-player,#autonomy .sonar-detail{width:92%}#autonomy .sonar-sequence{grid-template-columns:1fr}#autonomy .sonar-image{max-width:none}}
+@media(prefers-reduced-motion:no-preference){#autonomy.in-view .film-heading,#autonomy.in-view .film-player{animation:nav-arrive .6s both}#autonomy.in-view .film-player{animation-delay:.08s}@keyframes nav-arrive{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}}
