@@ -924,6 +924,35 @@ html[lang="zh-CN"] .hero h1 span {
   .site-footer .footer-brand img { width: 160px; max-height: 44px; }
 }
 </style>
+<style id="mobile-layout-refresh">
+@media (max-width: 600px) {
+  html { scroll-padding-top: 82px; }
+  .site-header, .site-header.is-scrolled { height: 72px; padding: 0 18px; }
+  .site-header .brand img { width: 156px; max-height: 42px; }
+  .menu-toggle { width: 46px; height: 46px; }
+  .site-nav { top: 72px; max-height: calc(100dvh - 72px); padding: 12px 20px 22px; }
+  .site-nav a { min-height: 48px; font-size: 17px; line-height: 1.5; }
+  .site-nav .language-link { min-width: 54px; text-align: center; }
+  .hero-content { padding-top: 90px; padding-bottom: 90px; }
+  html[lang="zh-CN"] .hero h1 { font-size: clamp(26px, 7.7vw, 44px); line-height: 1.25; }
+  html[lang="zh-CN"] .hero h1 span { display: block; white-space: normal; word-break: keep-all; overflow-wrap: break-word; }
+  html[lang="en"] .hero h1 { font-size: clamp(32px, 8.5vw, 48px); line-height: 1.15; }
+  html[lang="en"] .hero h1 span { display: block; }
+  .hero-description { font-size: 16px; line-height: 1.8; }
+  .hero-actions .button { min-height: 48px; }
+  #autonomy .sonar-sequence { grid-template-columns: minmax(0,1fr); gap: 24px; }
+  #autonomy .sonar-sequence figcaption { font-size: 17px; line-height: 1.6; }
+  #acoustics .acoustic-status small { font-size: 16px; line-height: 1.65; }
+  #acoustics .acoustic-workflow { grid-template-columns: minmax(0,1fr); gap: 22px; }
+  #acoustics .acoustic-workflow > i { display: none; }
+  #acoustics .acoustic-workflow > div { min-width: 0; padding-bottom: 16px; border-bottom: 1px solid var(--line-dark); }
+  #acoustics .acoustic-workflow small { font-size: 15px; }
+  #acoustics .acoustic-workflow strong { font-size: 20px; }
+  #acoustics .acoustic-workflow span { font-size: 16px; line-height: 1.75; }
+  .site-footer .footer-brand img { width: 174px; max-height: 46px; }
+  .footer-inner small { font-size: 13px; line-height: 1.7; }
+}
+</style>
 </head>
 <body>
   <div class="scroll-progress" data-scroll-progress></div>
@@ -1195,5 +1224,17 @@ html[lang="zh-CN"] .hero h1 span {
 
 </script>
 <script src="assets/navigation.js"></script>
+<script id="mobile-navigation-accessibility">
+(() => {
+ const button=document.querySelector('[data-menu-toggle]');
+ const nav=document.querySelector('[data-nav]');
+ if(!button || !nav) return;
+ nav.id='chapter-navigation'; button.setAttribute('aria-controls',nav.id);
+ const close=()=>{nav.classList.remove('is-open');button.setAttribute('aria-expanded','false');button.setAttribute('aria-label',document.documentElement.lang==='en'?'Open navigation menu':'打开导航菜单');};
+ document.addEventListener('keydown',e=>{if(e.key==='Escape' && button.getAttribute('aria-expanded')==='true'){close();button.focus();}});
+ nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
+ window.matchMedia('(min-width: 1101px)').addEventListener('change',close);
+})();
+</script>
 </body>
 </html>
